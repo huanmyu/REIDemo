@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	<!--客户端配置-->  
+    <bean id="myClient" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+    <!--客户端要访问服务器端的地址name="serviceUrl"是固定的写法-->
+    <property name="serviceUrl" value="rmi://127.0.0.1:8989/helloRMI"></property>
+    <!--客户端要调用的服务端端的接口name="serviceInterface"是固定的写法-->
+    <property name="serviceInterface" value="com.bowen.server.HelloRMIService"/>
+    </bean>
+</beans>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">  
+    <!--客户端-->
+    <bean id="myClient" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+    	<!--对客户端要访问的URL路径赋值-->
+    	<property name="serviceUrl" value="rmi://127.0.0.1:8888/myStudent"></property>
+    	<!--对客户端的要访问的接口赋值-->
+    	<property name="serviceInterface" value="com.bowen.test.StudentInterface"></property>
+    </bean>
+</beans>  

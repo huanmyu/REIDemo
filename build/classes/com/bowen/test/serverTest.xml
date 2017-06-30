@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd">
+	
+	<!--服务器端--> 
+	<!---服务端的实现类-->
+	<bean id="studentServerImpl" class="com.bowen.test.StudentInterfaceImpl"></bean> 
+	<bean id="myServcer" class="org.springframework.remoting.rmi.RmiServiceExporter">
+	<!--对服务端端的服务属性赋值-->
+	<property name="service" ref="studentServerImpl"></property>
+	<!---对服务器端的名称赋值-->
+	<property name="serviceName" value="myStudent"></property>
+	<!--对服务器端的服务接口属性赋值-->
+	<property name="serviceInterface" value="com.bowen.test.StudentInterface"></property>
+	<!--对服务的注册的端口号赋值-->
+	<property name="registryPort" value="8888"></property>
+	</bean>
+</beans>  
